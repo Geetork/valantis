@@ -1,59 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import styles from 'styled-components';
 import { Pagination } from '@mui/material';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
 import { getFilteredItemIds, getItemIds, getItemsWithIds } from '../../utils/api';
+import { AppContainer, ScrollableContainer, RowContainer, Button } from './AppStyles';
 import { TFilter, TItem } from '../../utils/types';
 import Loader from '../loader/Loader';
 import { CustomList } from '../list/List';
 import { FilterForm } from '../filter-form/FilterForm';
 import { Modal } from '../modal/Modal';
 import CloseIcon from '@mui/icons-material/Close';
-
-const AppContainer = styles.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  align-items: center;
-  gap: 5px;
-`;
-
-const ScrollableContainer = styles.div`
-  overflow-y: auto;
-  width: 80%;
-  height: 80vh;
-
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #888;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: #eee;
-  }
-`;
-
-const RowContainer = styles.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-`;
-
-const Button = styles.button`
-  font-size: 12px;
-  padding: 5px 15px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  border-radius: 15px;
-  border: none;
-  background-color: rgba(235, 240, 255, 0.8);
-`;
 
 
 /**
@@ -77,7 +33,6 @@ const getArrayWithoutDuplicates = (array: TItem[]): TItem[] => {
   return arrayWithoutDuplicates;
 };
 
-
 /**
  * getCommonElements Function
  *
@@ -99,7 +54,6 @@ const getCommonElements = (arrays: string[][]): string[] => {
   const result = referenceArray.filter(isCommon);
   return result;
 };
-
 
 /**
  * App Component
