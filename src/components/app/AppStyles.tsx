@@ -6,13 +6,15 @@ export const AppContainer = styles.div`
   width: calc(100vw - 20px);
   height: calc(100vh - 20px);
   align-items: center;
+  justify-content: flex-beetween;
   gap: 5px;
   margin: 10px;
 `;
 
 export const ScrollableContainer = styles.div`
   overflow-y: auto;
-  width: 80%;
+  width: 90%;
+  height: 100%;
 
   &::-webkit-scrollbar {
     width: 6px;
