@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from 'styled-components';
 import CloseIcon from '@mui/icons-material/Close';
@@ -52,6 +52,17 @@ const modalRoot = document.getElementById('modal') as Element;
 export const Modal: React.FC<{ 
     children: React.ReactNode, 
     onClose: () => void }> = ({ children, onClose }) => { 
+    useEffect(() => {
+        const handleKeyPress = (e: KeyboardEvent) => {
+            e.key === 'Escape' &&
+            onClose();
+        };
+        
+        document.addEventListener('keydown', handleKeyPress);
+
+        return () => document.removeEventListener('keydown', handleKeyPress);
+    }, []);
+
     return ReactDOM.createPortal((
             <BackgroundContainer onClick={onClose}>
                 <ModalContainer onClick={e => e.stopPropagation()}>

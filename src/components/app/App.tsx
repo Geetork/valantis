@@ -66,12 +66,15 @@ const getCommonElements = (arrays: string[][]): string[] => {
  * @returns {React.FC} The App component.
  */
 const App: React.FC = () => {
+  const storedFiltersJSON = localStorage.getItem('filters');
+  const storedFilters = storedFiltersJSON ? JSON.parse(storedFiltersJSON) : null;
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<null | string>(null);
   const [items, setItems] = useState<TItem[]>([]);
-  const [filters, setFilters] = useState<null | TFilter>(null);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [filters, setFilters] = useState<null | TFilter>(storedFilters);
+  const [currentPage, setCurrentPage] = useState(Number(localStorage.getItem('currentPage')) || 1);
   const [totalPage, setTotalPage] = useState(0);
 
   const itemsOnPage = 50;
@@ -115,6 +118,8 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
+    localStorage.setItem('currentPage', JSON.stringify(currentPage));
+    localStorage.setItem('filters', JSON.stringify(filters));
     fetchData();
   }, [currentPage, filters, error]);
 
@@ -136,6 +141,7 @@ const App: React.FC = () => {
         setFilters(newFilters);
       };
     };
+    setCurrentPage(1);
   };
 
   return (
