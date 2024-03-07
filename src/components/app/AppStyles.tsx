@@ -3,16 +3,16 @@ import styles from 'styled-components';
 export const AppContainer = styles.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100vh;
+  width: calc(100vw - 20px);
+  height: calc(100vh - 20px);
   align-items: center;
   gap: 5px;
+  margin: 10px;
 `;
 
 export const ScrollableContainer = styles.div`
   overflow-y: auto;
   width: 80%;
-  height: 80vh;
 
   &::-webkit-scrollbar {
     width: 6px;

@@ -17,7 +17,7 @@ import { TItem } from '../../utils/types';
  */
 export const CustomList: React.FC<{ items: TItem[] }> = ({ items }) => {
     return (
-        <List sx={{ width: '100%', bgcolor: 'background.paper'}}>
+        <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
             {
             items.map((item) => (
                 <div key={item.id}>

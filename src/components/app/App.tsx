@@ -11,7 +11,6 @@ import { FilterForm } from '../filter-form/FilterForm';
 import { Modal } from '../modal/Modal';
 import CloseIcon from '@mui/icons-material/Close';
 
-
 /**
  * getArrayWithoutDuplicates Function
  *
