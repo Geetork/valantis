@@ -161,16 +161,13 @@ const App: React.FC = () => {
         { 
           filters &&
             Object.keys(filters).map((key, id) => (
-              <Button key={id} onClick={(e) => deleteFilter(key as keyof TFilter)}>
+              <Button 
+                key={id}
+                onClick={(e) => deleteFilter(key as keyof TFilter)}>
                 <span>{key}</span>
                 <CloseIcon
                   color='primary'
-                  sx={[{
-                      fontSize: 16,
-                      '&:hover': {
-                      cursor: 'pointer',
-                      },
-                  }]}/>
+                  sx={[{ fontSize: 16, '&:hover': { cursor: 'pointer' } }]}/>
               </Button>
             ))
         }

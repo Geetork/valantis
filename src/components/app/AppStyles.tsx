@@ -41,5 +41,9 @@ export const Button = styles.button`
   gap: 5px;
   border-radius: 15px;
   border: none;
-  background-color: rgba(235, 240, 255, 0.8);
+  background-color: rgba(235, 240, 255, 0.5);
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(235, 240, 255, 1);
+  }
 `;
